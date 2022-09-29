@@ -1,5 +1,5 @@
 import sys
-from ui_mainWindows import *
+from ui_design.ui_mainWindows import *
 from PySide6 import QtCore
 from PySide6.QtCore import QPropertyAnimation
 
@@ -20,7 +20,11 @@ class mainApp(QMainWindow):
         self.ui.btn_exit.clicked.connect(lambda: self.close())
         self.ui.btn_restore.hide()
         
-        self.ui.btn_menu.clicked.connect(self.move_menu)
+        self.ui.checkBox_1.stateChanged.connect(self.option)
+        self.ui.checkBox_2.stateChanged.connect(self.option)
+        self.ui.checkBox_3.stateChanged.connect(self.option)
+        self.checkGroup_previous_state = [self.ui.checkBox_1.isChecked(), self.ui.checkBox_2.isChecked(), self.ui.checkBox_3.isChecked()]
+
 
     def set_minimize(self):
         self.showMinimized()		
@@ -50,22 +54,56 @@ class mainApp(QMainWindow):
             else:
                 self.showNormal()
 
-    def move_menu(self):
-        if True:			
-            width = self.ui.menu_side.width()
-            normal = 95
-            if width==95:
-                extender = 250
-            else:
-                extender = normal
-            self.animacion = QPropertyAnimation(self.ui.menu_side, b'minimumWidth')
+    def menu_open(self):
+        width = self.ui.menu_config.width()
+        if width==2:
+            extender = 210
+            self.animacion = QPropertyAnimation(self.ui.menu_config, b'minimumWidth')
             self.animacion.setDuration(300)
             self.animacion.setStartValue(width)
             self.animacion.setEndValue(extender)
             self.animacion.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
             self.animacion.start()
 
+    def menu_close(self):
+        width = self.ui.menu_config.width()
+        if width>2:
+            extender = 2
+            self.animacion = QPropertyAnimation(self.ui.menu_config, b'minimumWidth')
+            self.animacion.setDuration(300)
+            self.animacion.setStartValue(width)
+            self.animacion.setEndValue(extender)
+            self.animacion.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
+            self.animacion.start()
 
+    def option(self):
+        checkGroup_actual_state = [self.ui.checkBox_1.isChecked(), self.ui.checkBox_2.isChecked(), self.ui.checkBox_3.isChecked()]
+        #print(checkGroup_actual_state)
+        thereAreOne = [x for x in range(len(checkGroup_actual_state)) if checkGroup_actual_state[x] ==True]
+        if len(thereAreOne) > 1:
+            #print("there is more than one")
+            for p in thereAreOne:
+                if checkGroup_actual_state[p] == self.checkGroup_previous_state[p]:
+                    #print(i)
+                    if p == 0:
+                        self.ui.checkBox_1.setChecked(False)
+                    if p == 1:
+                        self.ui.checkBox_2.setChecked(False)
+                    if p == 2:
+                        self.ui.checkBox_3.setChecked(False)
+                    break
+        elif len(thereAreOne) == 1:
+            self.checkGroup_previous_state = [self.ui.checkBox_1.isChecked(), self.ui.checkBox_2.isChecked(), self.ui.checkBox_3.isChecked()]
+            if thereAreOne[0] == 0:
+                self.ui.pg_configs.setCurrentWidget(self.ui.pg_config_1)
+            if thereAreOne[0] == 1:
+                self.ui.pg_configs.setCurrentWidget(self.ui.pg_config_2)
+            if thereAreOne[0] == 2:
+                self.ui.pg_configs.setCurrentWidget(self.ui.pg_config_3)
+            self.menu_open()
+
+        else:
+            self.menu_close()
 
 if __name__ == "__main__":
      application = QApplication(sys.argv)
