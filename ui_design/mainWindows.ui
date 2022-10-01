@@ -88,8 +88,8 @@
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>372</width>
-           <height>17</height>
+           <width>40</width>
+           <height>20</height>
           </size>
          </property>
         </spacer>
@@ -264,7 +264,8 @@ borde:5px solid #aa00ff;
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(99, 99, 99);</string>
+             <string notr="true">border: none;
+background-color: rgb(99, 99, 99);</string>
             </property>
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
@@ -290,22 +291,91 @@ borde:5px solid #aa00ff;
              </property>
              <item>
               <widget class="QCheckBox" name="checkBox_1">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QCheckBox::indicator {
+	width: 47px;
+    height: 47px;
+}
+QCheckBox::indicator:unchecked {
+    image: url(images/icons/settings.png);
+	border-left: 3px solid  rgb(99, 99, 99);
+}
+QCheckBox::indicator:unchecked:hover {
+    image: url(images/icons/settings.png);
+	background-color: rgb(234, 234, 234);
+	border-left: 3px solid #ffffff;
+}
+QCheckBox::indicator:checked {
+    image: url(images/icons/settings.png);
+	background-color: rgb(234, 234, 234);
+	border-left: 3px solid #ffffff;
+}</string>
+               </property>
                <property name="text">
-                <string>Option 1</string>
+                <string/>
                </property>
               </widget>
              </item>
              <item>
               <widget class="QCheckBox" name="checkBox_2">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QCheckBox::indicator {
+	width: 47px;
+    height: 47px;
+}
+QCheckBox::indicator:unchecked {
+    image: url(images/icons/settings.png);
+	border-left: 3px solid  rgb(99, 99, 99);
+}
+QCheckBox::indicator:unchecked:hover {
+    image: url(images/icons/settings.png);
+	background-color: rgb(234, 234, 234);
+	border-left: 3px solid #ffffff;
+}
+QCheckBox::indicator:checked {
+    image: url(images/icons/settings.png);
+	background-color: rgb(234, 234, 234);
+	border-left: 3px solid #ffffff;
+}</string>
+               </property>
                <property name="text">
-                <string>Option 2</string>
+                <string/>
                </property>
               </widget>
              </item>
              <item>
               <widget class="QCheckBox" name="checkBox_3">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QCheckBox::indicator {
+	width: 47px;
+    height: 47px;
+}
+QCheckBox::indicator:unchecked {
+    image: url(images/icons/settings.png);
+	border-left: 3px solid  rgb(99, 99, 99);
+}
+QCheckBox::indicator:unchecked:hover {
+    image: url(images/icons/settings.png);
+	background-color: rgb(234, 234, 234);
+	border-left: 3px solid #ffffff;
+}
+QCheckBox::indicator:checked {
+    image: url(images/icons/settings.png);
+	background-color: rgb(234, 234, 234);
+	border-left: 3px solid #ffffff;
+}</string>
+               </property>
                <property name="text">
-                <string>Option 3</string>
+                <string/>
                </property>
               </widget>
              </item>
@@ -321,6 +391,46 @@ borde:5px solid #aa00ff;
                 </size>
                </property>
               </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_account">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>images/icons/user.png</normaloff>images/icons/user.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>30</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_config">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>images/icons/config.png</normaloff>images/icons/config.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>30</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
              </item>
              <item alignment="Qt::AlignHCenter">
               <widget class="QLabel" name="label_2">

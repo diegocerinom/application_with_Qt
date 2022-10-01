@@ -1,5 +1,6 @@
 import sys
 from ui_design.ui_mainWindows import *
+from ui_design.ui_loginView import *
 from PySide6 import QtCore
 from PySide6.QtCore import QPropertyAnimation
 
@@ -8,7 +9,7 @@ class mainApp(QMainWindow):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-
+        
         self.setWindowFlag(Qt.FramelessWindowHint)
         self.setWindowOpacity(1)
 
@@ -104,6 +105,8 @@ class mainApp(QMainWindow):
 
         else:
             self.menu_close()
+
+
 
 if __name__ == "__main__":
      application = QApplication(sys.argv)

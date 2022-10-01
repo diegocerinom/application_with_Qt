@@ -45,7 +45,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setSpacing(0)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.horizontalSpacer = QSpacerItem(372, 17, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_2.addItem(self.horizontalSpacer)
 
@@ -140,7 +140,8 @@ class Ui_MainWindow(object):
         self.menu_bar.setObjectName(u"menu_bar")
         self.menu_bar.setMinimumSize(QSize(50, 0))
         self.menu_bar.setMaximumSize(QSize(50, 16777215))
-        self.menu_bar.setStyleSheet(u"background-color: rgb(99, 99, 99);")
+        self.menu_bar.setStyleSheet(u"border: none;\n"
+"background-color: rgb(99, 99, 99);")
         self.menu_bar.setFrameShape(QFrame.StyledPanel)
         self.menu_bar.setFrameShadow(QFrame.Raised)
         self.verticalLayout_3 = QVBoxLayout(self.menu_bar)
@@ -149,22 +150,99 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.checkBox_1 = QCheckBox(self.menu_bar)
         self.checkBox_1.setObjectName(u"checkBox_1")
+        self.checkBox_1.setCursor(QCursor(Qt.PointingHandCursor))
+        self.checkBox_1.setStyleSheet(u"QCheckBox::indicator {\n"
+"	width: 47px;\n"
+"    height: 47px;\n"
+"}\n"
+"QCheckBox::indicator:unchecked {\n"
+"    image: url(images/icons/settings.png);\n"
+"	border-left: 3px solid  rgb(99, 99, 99);\n"
+"}\n"
+"QCheckBox::indicator:unchecked:hover {\n"
+"    image: url(images/icons/settings.png);\n"
+"	background-color: rgb(234, 234, 234);\n"
+"	border-left: 3px solid #ffffff;\n"
+"}\n"
+"QCheckBox::indicator:checked {\n"
+"    image: url(images/icons/settings.png);\n"
+"	background-color: rgb(234, 234, 234);\n"
+"	border-left: 3px solid #ffffff;\n"
+"}")
 
         self.verticalLayout_3.addWidget(self.checkBox_1)
 
         self.checkBox_2 = QCheckBox(self.menu_bar)
         self.checkBox_2.setObjectName(u"checkBox_2")
+        self.checkBox_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.checkBox_2.setStyleSheet(u"QCheckBox::indicator {\n"
+"	width: 47px;\n"
+"    height: 47px;\n"
+"}\n"
+"QCheckBox::indicator:unchecked {\n"
+"    image: url(images/icons/settings.png);\n"
+"	border-left: 3px solid  rgb(99, 99, 99);\n"
+"}\n"
+"QCheckBox::indicator:unchecked:hover {\n"
+"    image: url(images/icons/settings.png);\n"
+"	background-color: rgb(234, 234, 234);\n"
+"	border-left: 3px solid #ffffff;\n"
+"}\n"
+"QCheckBox::indicator:checked {\n"
+"    image: url(images/icons/settings.png);\n"
+"	background-color: rgb(234, 234, 234);\n"
+"	border-left: 3px solid #ffffff;\n"
+"}")
 
         self.verticalLayout_3.addWidget(self.checkBox_2)
 
         self.checkBox_3 = QCheckBox(self.menu_bar)
         self.checkBox_3.setObjectName(u"checkBox_3")
+        self.checkBox_3.setCursor(QCursor(Qt.PointingHandCursor))
+        self.checkBox_3.setStyleSheet(u"QCheckBox::indicator {\n"
+"	width: 47px;\n"
+"    height: 47px;\n"
+"}\n"
+"QCheckBox::indicator:unchecked {\n"
+"    image: url(images/icons/settings.png);\n"
+"	border-left: 3px solid  rgb(99, 99, 99);\n"
+"}\n"
+"QCheckBox::indicator:unchecked:hover {\n"
+"    image: url(images/icons/settings.png);\n"
+"	background-color: rgb(234, 234, 234);\n"
+"	border-left: 3px solid #ffffff;\n"
+"}\n"
+"QCheckBox::indicator:checked {\n"
+"    image: url(images/icons/settings.png);\n"
+"	background-color: rgb(234, 234, 234);\n"
+"	border-left: 3px solid #ffffff;\n"
+"}")
 
         self.verticalLayout_3.addWidget(self.checkBox_3)
 
         self.verticalSpacer = QSpacerItem(20, 399, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.verticalLayout_3.addItem(self.verticalSpacer)
+
+        self.btn_account = QPushButton(self.menu_bar)
+        self.btn_account.setObjectName(u"btn_account")
+        self.btn_account.setCursor(QCursor(Qt.PointingHandCursor))
+        icon4 = QIcon()
+        icon4.addFile(u"images/icons/user.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_account.setIcon(icon4)
+        self.btn_account.setIconSize(QSize(30, 30))
+
+        self.verticalLayout_3.addWidget(self.btn_account)
+
+        self.btn_config = QPushButton(self.menu_bar)
+        self.btn_config.setObjectName(u"btn_config")
+        self.btn_config.setCursor(QCursor(Qt.PointingHandCursor))
+        icon5 = QIcon()
+        icon5.addFile(u"images/icons/config.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_config.setIcon(icon5)
+        self.btn_config.setIconSize(QSize(30, 30))
+
+        self.verticalLayout_3.addWidget(self.btn_config)
 
         self.label_2 = QLabel(self.menu_bar)
         self.label_2.setObjectName(u"label_2")
@@ -272,9 +350,11 @@ class Ui_MainWindow(object):
         self.btn_restore.setText("")
         self.btn_maximize.setText("")
         self.btn_exit.setText("")
-        self.checkBox_1.setText(QCoreApplication.translate("MainWindow", u"Option 1", None))
-        self.checkBox_2.setText(QCoreApplication.translate("MainWindow", u"Option 2", None))
-        self.checkBox_3.setText(QCoreApplication.translate("MainWindow", u"Option 3", None))
+        self.checkBox_1.setText("")
+        self.checkBox_2.setText("")
+        self.checkBox_3.setText("")
+        self.btn_account.setText("")
+        self.btn_config.setText("")
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"v1.0.0", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"config 1", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"config 2", None))
